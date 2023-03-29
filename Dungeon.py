@@ -529,31 +529,31 @@ class Arme():
         self.lvl += 1
 
 
-arm1 = Arme("EpÃ©e d'apprenti", 15, 20, 15, 1) #30 dps
-arm2 = Arme('EpÃ©e usagÃ©e', 20, 20, 15, 1) #40 dps
-arm3 = Arme('EpÃ©e rouillÃ©e', 10, 20, 15, 1) #20 dps
-arm4 = Arme('EpÃ©e de chevalier', 35, 20, 15, 1) #70 dps
-arm5 = Arme('EpÃ©e tranchante', 45, 20, 15, 1) #90 dps
+arm1 = Arme("Apprentice sword", 15, 20, 15, 1) #30 dps
+arm2 = Arme('Used sword', 20, 20, 15, 1) #40 dps
+arm3 = Arme('Rusty sword', 10, 20, 15, 1) #20 dps
+arm4 = Arme('Knight\'s sword', 35, 20, 15, 1) #70 dps
+arm5 = Arme('Sharp sword', 45, 20, 15, 1) #90 dps
 arm6 = Arme('Muramasa', 60, 20, 15, 1) #120 dps
 
-arm7 = Arme('Dague', 50, 10, 10, 2) #150 dps
-arm8 = Arme('EpÃ©e courte', 30, 10, 10, 2) #60 dps
+arm7 = Arme('Dagger', 50, 10, 10, 2) #150 dps
+arm8 = Arme('Short sword', 30, 10, 10, 2) #60 dps
 
-arm9 = Arme('RapiÃ¨re', 20, 20, 5, 3) #120 dps
-arm10 = Arme('EpÃ©e fine', 10, 20, 5, 3) #60 dps
+arm9 = Arme('Rapier', 20, 20, 5, 3) #120 dps
+arm10 = Arme('Fine sword', 10, 20, 5, 3) #60 dps
 
-arm11 = Arme('EpÃ©e a deux main', 30, 25, 25, 4) #36 dps
-arm12 = Arme('Fausse Ã©pÃ©e sacrÃ©', 40, 25, 25, 4) #48 dps
-arm13 = Arme('EpÃ©e de 40 mÃ¨tres', 50, 25, 25, 4) #60 dps
+arm11 = Arme('Two-handed sword', 30, 25, 25, 4) #36 dps
+arm12 = Arme('Fake Sacred Sword', 40, 25, 25, 4) #48 dps
+arm13 = Arme('40 meter sword', 50, 25, 25, 4) #60 dps
 arm14 = Arme('Excalibur', 100, 20, 25, 4) #120 dps
 
-arm15 = Arme('Hache de bucheron', 30, 30, 25, 5) #36 dps
-arm16 = Arme('Halbarde', 40, 30, 25, 5) #48 dps
+arm15 = Arme('Lumberjack\'s axe', 30, 30, 25, 5) #36 dps
+arm16 = Arme('Halbard', 40, 30, 25, 5) #48 dps
 arm17 = Arme('Guillotine', 50, 30, 25, 5) #60 dps
 
-arm18 = Arme('Marteau de guerre', 60, 20, 45, 6) #40 dps
-arm19 = Arme("Masse d'arme", 100, 20, 45, 6) #66.7 dps
-arm20 = Arme('MjÃ¶llnir', 150, 20, 45, 6) #100 dps
+arm18 = Arme('War hammer', 60, 20, 45, 6) #40 dps
+arm19 = Arme("Big hammer", 100, 20, 45, 6) #66.7 dps
+arm20 = Arme('Mjolnir', 150, 20, 45, 6) #100 dps
 
 arme_list = [arm1, arm2, arm3, arm4, arm5,
             arm6, arm7, arm8, arm9, arm10,
@@ -755,7 +755,7 @@ class Personnage(object):
             self.L = True
 
 
-    def attack(self):
+    def Dammage(self):
         """Permet de faire attaquer le personnage"""
         self.alea = random.randint(-10, 10)
         self.crit = random.randint(0, 100)
@@ -1286,7 +1286,7 @@ class Monstre():
                 a = True
 
 
-    def attack(self):
+    def Dammage(self):
         """DÃ©fini ce qui ce passe lors du contact entre un monstre et le personnage"""
         self.alea = random.randint(-10, 10)
         self.crit = random.randint(0, 100)
@@ -1921,7 +1921,7 @@ class Boss_final():
 
 
 
-    def attack(self):
+    def Dammage(self):
         """MÃ©thode permettant de dÃ©finir ce qui se passe quand le joueur entre en collision avec le boss"""
         self.alea = random.randint(-10, 10)
         self.crit = random.randint(0, 100)
@@ -2530,7 +2530,7 @@ class button():
         self.width = width
         self.height = height
         self.text = text
-        if self.text == 'Vie' or self.text == 'Force' or self.text == 'Vitesse':
+        if self.text == 'Life' or self.text == 'Strengh' or self.text == 'Speed':
             self.sprite1 = Mbutton
             self.sprite2 = Mbutton2
         else:
@@ -2569,12 +2569,12 @@ class button():
         if self.isOver(pos):
             key2 = pygame.mouse.get_pressed()
             if key2[0] == 1:
-                if self.text == 'Jouer':
+                if self.text == 'Play':
                     Son_bouton.play()
                     fenetre = 1
 
 
-                elif self.text == 'Nouvelle Partie':
+                elif self.text == 'New Game':
                     Son_bouton.play()
                     perso = Personnage(arm1)
                     nb_niveaux = 0
@@ -2585,7 +2585,7 @@ class button():
                     tps = 0
 
 
-                elif self.text == 'Continuer':
+                elif self.text == 'Continue':
                     Son_bouton.play()
                     perso = Personnage(arm1)
                     with open('Save_game', 'rb') as fichier:
@@ -2624,33 +2624,33 @@ class button():
                     fenetre = 2
 
 
-                elif self.text == 'Retour':
+                elif self.text == 'Back':
                     Son_bouton.play()
                     fenetre = 0
 
 
-                elif self.text == 'Quitter':
+                elif self.text == 'Quit':
                     Son_bouton.play()
                     run = False
                     run2 = False
 
 
-                elif self.text == 'Vie':
+                elif self.text == 'Life':
                     Son_bouton.play()
                     perso.lvl_up('Vie')
 
 
-                elif self.text == 'Force':
+                elif self.text == 'Strengh':
                     Son_bouton.play()
                     perso.lvl_up('Force')
 
 
-                elif self.text == 'Vitesse':
+                elif self.text == 'Speed':
                     Son_bouton.play()
                     perso.lvl_up('Vitesse')
 
 
-                elif self.text == 'Niveau suivant !':
+                elif self.text == 'Level up':
                     Son_bouton.play()
                     boss = 1
                     perso.x = 740
@@ -2717,7 +2717,7 @@ class button():
                     raffraichissement(test_pos, nb_mob, test_collid)
 
 
-                elif self.text == 'Rejouer':
+                elif self.text == 'Play again':
                     Son_bouton.play()
                     nb_mort += 1
                     boss = 1
@@ -2788,17 +2788,17 @@ class button():
                     raffraichissement(test_pos, nb_mob, test_collid)
 
 
-                elif self.text == 'AmÃ©liorer':
+                elif self.text == 'Upgrade':
                     Son_bouton.play()
                     arme.upgrade()
                     perso.dommage = arme.atk
                     perso.atk = perso.dommage + perso.strengh
 
-                elif self.text == 'Oui':
+                elif self.text == 'Yes':
                     Son_bouton.play()
                     perso.change(arme, 0)
 
-                elif self.text == 'Non':
+                elif self.text == 'No':
                     Son_bouton.play()
                     perso.change(arme, 1)
 
@@ -2808,24 +2808,24 @@ class button():
             self.etat = 0
 
 
-But1 = button((0, 200, 0), 860, 440, 200, 40, 'Jouer')
-But1_1 = button((0, 200, 0), 750, 490, 200, 40, 'Nouvelle Partie')
-But1_2 = button((0, 200, 0), 970, 490, 200, 40, 'Continuer')
-But1_3 = button((0, 200, 0), 860, 590, 200, 40, 'Retour')
+But1 = button((0, 200, 0), 860, 440, 200, 40, 'Play')
+But1_1 = button((0, 200, 0), 750, 490, 200, 40, 'New Game')
+But1_2 = button((0, 200, 0), 970, 490, 200, 40, 'Continue')
+But1_3 = button((0, 200, 0), 860, 590, 200, 40, 'Back')
 But2 = button((0, 200, 0), 860, 540, 200, 40, 'Options')
-But2_1 = button((0, 200, 0), 860, 740, 200, 40, 'Retour')
-But3 = button((0, 200, 0), 860, 640, 200, 40, 'Quitter')
-But3_1 = button((0, 0, 255), 970, 600, 200, 40, 'Quitter')
-But3_2 = button((0, 0, 255), 970, 560, 200, 40, 'Quitter')
-But3_3 = button((0, 0, 255), 970, 560, 200, 40, 'Quitter')
-But4 = button((0, 0, 255), 800, 540, 100, 40, 'Vie')
-But5 = button((0, 0, 255), 910, 540, 100, 40, 'Force')
-But6 = button((0, 0, 255), 1020, 540, 100, 40, 'Vitesse')
-But7 = button((0, 0, 255), 750, 560, 200, 40, 'Rejouer')
-But8 = button((0, 0, 255), 750, 560, 200, 40, 'Niveau suivant !')
-But9 = button((0, 0, 255), 1680, 640, 200, 40, 'AmÃ©liorer')
-But10 = button((0, 0, 255), 750, 600, 200, 40, 'Oui')
-But11 = button((0, 0, 255), 970, 600, 200, 40, 'Non')
+But2_1 = button((0, 200, 0), 860, 740, 200, 40, 'Back')
+But3 = button((0, 200, 0), 860, 640, 200, 40, 'Quit')
+But3_1 = button((0, 0, 255), 970, 600, 200, 40, 'Quit')
+But3_2 = button((0, 0, 255), 970, 560, 200, 40, 'Quit')
+But3_3 = button((0, 0, 255), 970, 560, 200, 40, 'Quit')
+But4 = button((0, 0, 255), 800, 540, 100, 40, 'Life')
+But5 = button((0, 0, 255), 910, 540, 100, 40, 'Strengh')
+But6 = button((0, 0, 255), 1020, 540, 100, 40, 'Speed')
+But7 = button((0, 0, 255), 750, 560, 200, 40, 'Play again')
+But8 = button((0, 0, 255), 750, 560, 200, 40, 'Level up')
+But9 = button((0, 0, 255), 1680, 640, 200, 40, 'Upgrade')
+But10 = button((0, 0, 255), 750, 600, 200, 40, 'Yes')
+But11 = button((0, 0, 255), 970, 600, 200, 40, 'No')
 
 
 
@@ -2932,7 +2932,7 @@ def update_boss(boss0, nb_mob, Fin, tps, projectiles_list, boss, nb_arme, niveau
             nb_mob = 0
 
     projectiles_list = boss0.move(projectiles_list)
-    boss0.attack()
+    boss0.Dammage()
     boss0.draw()
 
     for pro in projectiles_list:
@@ -2940,16 +2940,16 @@ def update_boss(boss0, nb_mob, Fin, tps, projectiles_list, boss, nb_arme, niveau
         pro.attaque()
         pro.draw()
 
-    if key[pygame.K_w] or key[pygame.K_UP]:
+    if key[pygame.K_w] or key[pygame.K_z] or key[pygame.K_UP]:
         perso.move(0)
     elif key[pygame.K_d] or key[pygame.K_RIGHT]:
         perso.move(1)
     elif key[pygame.K_s] or key[pygame.K_DOWN]:
         perso.move(2)
-    elif key[pygame.K_a] or key[pygame.K_LEFT]:
+    elif key[pygame.K_a] or key[pygame.K_q] or key[pygame.K_LEFT]:
         perso.move(3)
 
-    perso.attack()
+    perso.Dammage()
     perso.draw()
 
     pygame.display.update()
@@ -2989,13 +2989,13 @@ def raffraichissement(test_pos, nb_mob, test_collid, Fin = 0, tps = 0, projectil
                 fond.draw(fen)
             x = 0
 
-        if key[pygame.K_w] or key[pygame.K_UP]:
+        if key[pygame.K_w] or key[pygame.K_z] or key[pygame.K_UP]:
             perso.move(0)
         elif key[pygame.K_d] or key[pygame.K_RIGHT]:
             perso.move(1)
         elif key[pygame.K_s] or key[pygame.K_DOWN]:
             perso.move(2)
-        elif key[pygame.K_a] or key[pygame.K_LEFT]:
+        elif key[pygame.K_a] or key[pygame.K_q] or key[pygame.K_LEFT]:
             perso.move(3)
 
         if (perso.x, perso.y) == test_pos:
@@ -3019,10 +3019,10 @@ def raffraichissement(test_pos, nb_mob, test_collid, Fin = 0, tps = 0, projectil
                 Mobs.remove(mob)
                 nb_mob -= 1
             mob.move(Map)
-            mob.attack()
+            mob.Dammage()
             mob.draw()
 
-        perso.attack()
+        perso.Dammage()
         perso.draw()
 
     return nb_mob, Son, test_collid, test_pos, Fin, tps, projectiles_list, boss, nb_arme, niveau_save
@@ -3032,7 +3032,7 @@ def raffraichissement(test_pos, nb_mob, test_collid, Fin = 0, tps = 0, projectil
 
 def menu(fenetre):
     """Fonction permettant de mettre Ã  jour le menu. Prends en paramÃ¨tre la fenÃªtre int(fenetre) pour savoir qu'elle partie du menu afficher"""
-    string = "Appuyez sur F4 pour passer en pleins écran ou en mode fenêtré !"
+    string = "Press F4 to switch in full screen !"
     font = pygame.font.SysFont("comicsans", 30)
     text = font.render(string, 1, (255, 255, 255))
     fen.blit(text, (10, 10))
@@ -3064,19 +3064,19 @@ def menu(fenetre):
         fen.blit(text1, (960 - (text1.get_width()/2), 340))
 
         font2 = pygame.font.SysFont("comicsans", 40)
-        text2 = font2.render("Haut : Z", 1, (255, 255, 255))
+        text2 = font2.render("Up : W or Z", 1, (255, 255, 255))
         fen.blit(text2, (960 - (text2.get_width()/2), 390))
 
         font3 = pygame.font.SysFont("comicsans", 40)
-        text3 = font3.render("Bas : S", 1, (255, 255, 255))
+        text3 = font3.render("Down : S", 1, (255, 255, 255))
         fen.blit(text3, (960 - (text3.get_width()/2), 440))
 
         font4 = pygame.font.SysFont("comicsans", 40)
-        text4 = font4.render("Droite : D", 1, (255, 255, 255))
+        text4 = font4.render("Right : A or D", 1, (255, 255, 255))
         fen.blit(text4, (960 - (text4.get_width()/2), 490))
 
         font5 = pygame.font.SysFont("comicsans", 40)
-        text5 = font5.render("Gauche : Q", 1, (255, 255, 255))
+        text5 = font5.render("Left : Q", 1, (255, 255, 255))
         fen.blit(text5, (960 - (text5.get_width()/2), 540))
 
         font6 = pygame.font.SysFont("comicsans", 40)
@@ -3084,7 +3084,7 @@ def menu(fenetre):
         fen.blit(text6, (960 - (text6.get_width()/2), 590))
 
         font7 = pygame.font.SysFont("comicsans", 40)
-        text7 = font7.render("Quitter : Echap", 1, (255, 255, 255))
+        text7 = font7.render("Quit : Echap", 1, (255, 255, 255))
         fen.blit(text7, (960 - (text7.get_width()/2), 640))
 
 
@@ -3096,23 +3096,23 @@ def menu(fenetre):
 def End(anti_bug):
     """Fonction gÃ©rant la fin du jeu. Prends en paramÃ¨tre un anti bug int(anti_bug) afin d'Ã©viter d'appuyer du les boutons sans avoir lu le reste avant"""
     font1 = pygame.font.SysFont("comicsans", 40)
-    text1 = font1.render("FÃ©licitations pour avoir terminer le jeu !", 1, (0, 0, 0))
+    text1 = font1.render("Congratulations for completing the game!", 1, (0, 0, 0))
     fen.blit(text1, (770 - ((text1.get_width()/1)//2), 340))
 
     mins = tps // 60
     sec = tps % 60
-    Time = 'Vous avez jouer ' +  str(mins) + ' minutes et ' + str(sec) + ' secondes.'
+    Time = 'You have play ' +  str(mins) + ' minutes and ' + str(sec) + ' secondes.'
     font2 = pygame.font.SysFont("comicsans", 40)
     text2 = font2.render(Time, 1, (0, 0, 0))
     fen.blit(text2, (770 - (text2.get_width()/2), 370))
 
-    Mort = 'Vous Ãªtes mort ' + str(nb_mort) + ' de fois.'
+    Mort = 'You are dead ' + str(nb_mort) + ' times.'
     font3 = pygame.font.SysFont("comicsans", 40)
     text3 = font3.render(Mort, 1, (0, 0, 0))
     fen.blit(text3, (770 - ((text3.get_width()/1)/2), 400))
 
     font4 = pygame.font.SysFont("comicsans", 40)
-    text4 = font4.render("Jeu fait par Deroubaix Auguste", 1, (0, 0, 0))
+    text4 = font4.render("Game made by Auguste Deroubaix", 1, (0, 0, 0))
     fen.blit(text4, (770 - (text4.get_width()/2), 430))
 
     if anti_bug < 15:
@@ -3135,30 +3135,30 @@ def New_arme():
     arme = arme_list[nb_arme]
     b = True
     font1 = pygame.font.SysFont("comicsans", 40)
-    text1 = font1.render("Arme actuelle : ", 1, (0, 0, 0))
+    text1 = font1.render("Current weapon : ", 1, (0, 0, 0))
     fen.blit(text1, (930 - (text1.get_width()/1), 430))
 
-    Name = 'Nom : ' + str(perso.arme.nom)
+    Name = 'Name : ' + str(perso.arme.nom)
     font2 = pygame.font.SysFont("comicsans", 30)
     text2 = font2.render(Name, 1, (0, 0, 0))
     fen.blit(text2, (930 - (text2.get_width()/1), 460))
 
-    Niv = 'Niveau : ' + str(perso.arme.lvl)
+    Niv = 'Level : ' + str(perso.arme.lvl)
     font3  = pygame.font.SysFont("comicsans", 30)
     text3 = font3.render(Niv, 1, (0, 0, 0))
     fen.blit(text3, (930 - (text3.get_width()/1), 480))
 
-    Atk = 'Attaque : ' + str(perso.arme.atk)
+    Atk = 'Dammage : ' + str(perso.arme.atk)
     font4 = pygame.font.SysFont("comicsans", 30)
     text4 = font4.render(Atk, 1, (0, 0, 0))
     fen.blit(text4, (930 - (text4.get_width()/1), 500))
 
-    Range = 'PortÃ©e : ' + str(perso.arme.range)
+    Range = 'Range : ' + str(perso.arme.range)
     font5 = pygame.font.SysFont("comicsans", 30)
     text5 = font5.render(Range, 1, (0, 0, 0))
     fen.blit(text5, (930 - (text5.get_width()/1), 520))
 
-    Col = 'Vitesse : ' + str(math.ceil(30 / perso.arme.coldown))
+    Col = 'Speed : ' + str(math.ceil(30 / perso.arme.coldown))
     font6 = pygame.font.SysFont("comicsans", 30)
     text6 = font6.render(Col, 1, (0, 0, 0))
     fen.blit(text6, (930 - (text6.get_width()/1), 540))
@@ -3168,7 +3168,7 @@ def New_arme():
     text7 = font7.render("Nouvelle Arme : ", 1, (0, 0, 0))
     fen.blit(text7, (990, 430))
 
-    Name2 = 'Nom : ' + str(arme.nom)
+    Name2 = 'Name : ' + str(arme.nom)
     font8 = pygame.font.SysFont("comicsans", 30)
     text8 = font8.render(Name2, 1, (0, 0, 0))
     fen.blit(text8, (990, 460))
@@ -3179,7 +3179,7 @@ def New_arme():
         color = (0, 0, 0)
     elif perso.arme.lvl < arme.lvl:
         color = (0, 255, 0)
-    Niv2 = 'Niveau : ' + str(arme.lvl)
+    Niv2 = 'Level : ' + str(arme.lvl)
     font9  = pygame.font.SysFont("comicsans", 30)
     text9 = font9.render(Niv2, 1, color)
     fen.blit(text9, (990, 480))
@@ -3190,7 +3190,7 @@ def New_arme():
         color = (0, 0, 0)
     elif perso.arme.atk < arme.atk:
         color = (0, 255, 0)
-    Atk2 = 'Attaque : ' + str(arme.atk)
+    Atk2 = 'Dammage : ' + str(arme.atk)
     font10 = pygame.font.SysFont("comicsans", 30)
     text10 = font10.render(Atk2, 1, color)
     fen.blit(text10, (990, 500))
@@ -3201,12 +3201,12 @@ def New_arme():
         color = (0, 0, 0)
     elif perso.arme.range < arme.range:
         color = (0, 255, 0)
-    Range2 = 'PortÃ©e : ' + str(arme.range)
+    Range2 = 'Range : ' + str(arme.range)
     font11 = pygame.font.SysFont("comicsans", 30)
     text11 = font11.render(Range2, 1, color)
     fen.blit(text11, (990, 520))
 
-    Cold = 'Vitesse : ' + str(math.ceil(30 / arme.coldown))
+    Cold = 'Speed : ' + str(math.ceil(30 / arme.coldown))
     if Col > Cold:
         color = (255, 0, 0)
     elif Col == Cold:
@@ -3219,7 +3219,7 @@ def New_arme():
 
 
     font13 = pygame.font.SysFont("comicsans", 40)
-    text13 = font13.render('Changer ?', 1, (0, 0, 0))
+    text13 = font13.render('Change ?', 1, (0, 0, 0))
     fen.blit(text13, (960 - (text6.get_width()/2), 570))
 
     But10.action(pos, (0, 0, 255), (0, 0, 150), arme)
@@ -3234,7 +3234,7 @@ def Mort():
     """Fonction permettant de gÃ©rer la mort du joueur"""
     fen.blit(Ecran_mort, (0, 0))
     font1 = pygame.font.SysFont("comicsans", 40)
-    text1 = font1.render("Vous Ãªtes mort", 1, (255, 0, 0))
+    text1 = font1.render("You are dead", 1, (255, 0, 0))
     fen.blit(text1, (960 - (text1.get_width()/2), 520))
 
     But3_2.action(pos, (200, 0, 0), (255, 0, 0))
@@ -3288,7 +3288,7 @@ def Inventaire(tps):
     text7 = font7.render(Vitesse, 1, (255, 255, 255))
     fen.blit(text7, (834 - (text7.get_width()/1), 755))
 
-    Niveau = 'Niveau : ' + str(nb_niveaux)
+    Niveau = 'Depth : ' + str(nb_niveaux)
     font8 = pygame.font.SysFont("comicsans", 60)
     text8 = font8.render(Niveau, 1, (255, 255, 255))
     fen.blit(text8, (1920 - (text8.get_width()/1), 0))
@@ -3302,64 +3302,64 @@ def Fin_niveau(anti_bug):
     """Fonction permettant de gÃ©rer la fin de niveau et son changement. Prends en fonction l'anti bug int(anti_bug) afin de ne pas appuyer sur des boutons lors d'une attaque
     (pygame dÃ©tecte deux fois le clique de la sourie)"""
     fen.blit(Ecran_suite, (0, 0))
-    Niv = "Vous avez fini le niveau " + str(nb_niveaux)
+    Niv = "You have completed this deep " + str(nb_niveaux)
     font1 = pygame.font.SysFont("comicsans", 40)
-    text1 = font1.render(Niv, 1, (255, 0, 0))
+    text1 = font1.render(Niv, 1, (0, 0, 0))
     fen.blit(text1, (960 - (text1.get_width()/2), 520))
 
     arme = perso.arme
     font2 = pygame.font.SysFont("comicsans", 40)
-    text2 = font2.render("CaractÃ©ristique de l'arme :", 1, (255, 0, 0))
+    text2 = font2.render("Weapon characteristics :", 1, (0, 0, 0))
     fen.blit(text2, (1880 - (text2.get_width()/1), 440))
 
-    Nom = 'Nom : ' + str(arme.nom)
+    Nom = 'Name : ' + str(arme.nom)
     font3 = pygame.font.SysFont("comicsans", 30)
-    text3 = font3.render(Nom, 1, (255, 0, 0))
+    text3 = font3.render(Nom, 1, (0, 0, 0))
     fen.blit(text3, (1880 - (text3.get_width()/1), 480))
 
-    Atk = 'Attaque : ' + str(arme.atk)
+    Atk = 'Dammage : ' + str(arme.atk)
     font4 = pygame.font.SysFont("comicsans", 30)
-    text4 = font4.render(Atk, 1, (255, 0, 0))
+    text4 = font4.render(Atk, 1, (0, 0, 0))
     fen.blit(text4, (1880 - (text4.get_width()/1), 500))
 
-    Range = 'PortÃ©e : ' + str(arme.range)
+    Range = 'Range : ' + str(arme.range)
     font5 = pygame.font.SysFont("comicsans", 30)
-    text5 = font5.render(Range, 1, (255, 0, 0))
+    text5 = font5.render(Range, 1, (0, 0, 0))
     fen.blit(text5, (1880 - (text5.get_width()/1), 520))
 
-    Lvl = 'Niveau : ' + str(arme.lvl)
+    Lvl = 'Level : ' + str(arme.lvl)
     font8 = pygame.font.SysFont("comicsans", 30)
-    text8 = font8.render(Lvl, 1, (255, 0, 0))
+    text8 = font8.render(Lvl, 1, (0, 0, 0))
     fen.blit(text8, (1880 - (text8.get_width()/1), 540))
 
-    Or = "Or possedÃ© : " + str(perso.gold) + ' or'
+    Or = "Current gold : " + str(perso.gold) + ' or'
     font7 = pygame.font.SysFont("comicsans", 30)
-    text7 = font7.render(Or, 1, (255, 0, 0))
+    text7 = font7.render(Or, 1, (0, 0, 0))
     fen.blit(text7, (1880 - (text7.get_width()/1), 560))
 
     if anti_bug < 15:
         anti_bug += 1
     else:
-        But3_3.action(pos, (200, 0, 0), (255, 0, 0))
-        But8.action(pos, (200, 0, 0), (255, 0, 0))
+        But3_3.action(pos, (200, 0, 0), (0, 0, 0))
+        But8.action(pos, (200, 0, 0), (0, 0, 0))
 
         But3_3.draw(fen, 30)
         But8.draw(fen, 30)
 
     if perso.gold >= (50 + (50*arme.lvl)) and arme.lvl < 10:
-        Coup = "Coup d'amÃ©lioration : " + str(50 + (25*arme.lvl)) + ' or'
+        Coup = "Upgrade cost : " + str(50 + (25*arme.lvl)) + ' or'
         font6 = pygame.font.SysFont("comicsans", 30)
-        text6 = font6.render(Coup, 1, (255, 0, 0))
+        text6 = font6.render(Coup, 1, (0, 0, 0))
         fen.blit(text6, (1880 - (text6.get_width()/1), 580))
 
-        Am = "AmÃ©lioration :"
+        Am = "Upagrade :"
         font7 = pygame.font.SysFont("comicsans", 30)
-        text7 = font7.render(Am, 1, (255, 0, 0))
+        text7 = font7.render(Am, 1, (0, 0, 0))
         fen.blit(text7, (1880 - (text7.get_width()/1), 600))
 
-        Am2 = "Attaque + " + str((arme.atk//5))
+        Am2 = "Dammage + " + str((arme.atk//5))
         font7 = pygame.font.SysFont("comicsans", 30)
-        text7 = font7.render(Am2, 1, (255, 0, 0))
+        text7 = font7.render(Am2, 1, (0, 0, 0))
         fen.blit(text7, (1880 - (text7.get_width()/1), 620))
         But9.action(pos, (0, 0, 200), (0, 0, 255), arme)
         But9.draw(fen, 30)
@@ -3381,11 +3381,11 @@ def Montee_niveau(tps, Son, anti_bug):
 
 
     font1 = pygame.font.SysFont("comicsans", 30)
-    text1 = font1.render("Vous avez gagnÃ© un niveau !", 1, (255, 0, 0))
+    text1 = font1.render("You have level up !", 1, (0, 0, 0))
     fen.blit(text1, (960 - (text1.get_width()/2), 480))
 
     font2 = pygame.font.SysFont("comicsans", 30)
-    text2 = font2.render("Vous voulez augmenter votre :", 1, (255, 0, 0))
+    text2 = font2.render("Which stat would you upgrade :", 1, (0, 0, 0))
     fen.blit(text2, (960 - (text2.get_width()/2), 510))
 
     if anti_bug < 15:
@@ -3408,6 +3408,7 @@ def Montee_niveau(tps, Son, anti_bug):
 
 
 
+temps_attente_touche = 0.0
 
 
 #Boucle du menu
@@ -3425,19 +3426,26 @@ while run2:
         pygame.quit()
         quit()
 
-    if key[pygame.K_F4]:
+    if key[pygame.K_F4] and temps_attente_touche == 0.0:
         if full_screen:
             fen = pygame.display.set_mode(fen_size)
             full_screen = False
         else:
             fen = pygame.display.set_mode(fen_size, pygame.FULLSCREEN)
             full_screen = True
+        temps_attente_touche = 0.5
+
+    fps = clock.get_fps()
+    if (temps_attente_touche > 0.0 and fps > 0):
+        temps_attente_touche -= 1 / fps
+        if (temps_attente_touche < 0.0):
+            temps_attente_touche = 0.0
 
     fen.blit(Ecran_titre, (0, 0))
 
     menu(fenetre)
 
-    clock.tick(fps)
+    clock.tick(30)
 
 
 
@@ -3456,42 +3464,19 @@ if run:
         mob.spawn(Map)
 
 
-
 while run:
     for event in pygame.event.get():
         pos = pygame.mouse.get_pos()
         if event.type == pygame.QUIT:
             run = False
 
-##    print(clock.get_fps())
-
     key = pygame.key.get_pressed()
     if key[pygame.K_ESCAPE]:
         run = False
 
-
-    if key[pygame.K_F4]:
-        if full_screen:
-            fen = pygame.display.set_mode(fen_size)
-            full_screen = False
-        else:
-            fen = pygame.display.set_mode(fen_size, pygame.FULLSCREEN)
-            full_screen = True
-
-    if key[pygame.K_o]:
-        Mobs = []
-        nb_mob = 0
-        nb_niveaux = 29
-
     if key[pygame.K_k]:
         perso.xp += 100
         perso.gold += 100
-
-    if key[pygame.K_p]:
-        perso.life = 1000
-        perso.pv = 1000
-        perso.atk = 3000
-
 
 
     if Fin:
@@ -3531,7 +3516,7 @@ while run:
         nb_mob, Son, test_collid, test_pos, Fin, tps, projectiles_list, boss, nb_arme, niveau_save = raffraichissement(test_pos, nb_mob, test_collid, Fin, tps, projectiles_list, boss, nb_arme, niveau_save )
 
     pygame.display.update()
-    clock.tick(fps) #fps
+    clock.tick(30) #fps
 
 
 
