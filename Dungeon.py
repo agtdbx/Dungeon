@@ -755,7 +755,7 @@ class Personnage(object):
             self.L = True
 
 
-    def Dammage(self):
+    def damage(self):
         """Permet de faire attaquer le personnage"""
         self.alea = random.randint(-10, 10)
         self.crit = random.randint(0, 100)
@@ -1286,7 +1286,7 @@ class Monstre():
                 a = True
 
 
-    def Dammage(self):
+    def damage(self):
         """DÃ©fini ce qui ce passe lors du contact entre un monstre et le personnage"""
         self.alea = random.randint(-10, 10)
         self.crit = random.randint(0, 100)
@@ -1921,7 +1921,7 @@ class Boss_final():
 
 
 
-    def Dammage(self):
+    def damage(self):
         """MÃ©thode permettant de dÃ©finir ce qui se passe quand le joueur entre en collision avec le boss"""
         self.alea = random.randint(-10, 10)
         self.crit = random.randint(0, 100)
@@ -2650,7 +2650,7 @@ class button():
                     perso.lvl_up('Vitesse')
 
 
-                elif self.text == 'Level up':
+                elif self.text == 'Next level':
                     Son_bouton.play()
                     boss = 1
                     perso.x = 740
@@ -2822,7 +2822,7 @@ But4 = button((0, 0, 255), 800, 540, 100, 40, 'Life')
 But5 = button((0, 0, 255), 910, 540, 100, 40, 'Strengh')
 But6 = button((0, 0, 255), 1020, 540, 100, 40, 'Speed')
 But7 = button((0, 0, 255), 750, 560, 200, 40, 'Play again')
-But8 = button((0, 0, 255), 750, 560, 200, 40, 'Level up')
+But8 = button((0, 0, 255), 750, 560, 200, 40, 'Next level')
 But9 = button((0, 0, 255), 1680, 640, 200, 40, 'Upgrade')
 But10 = button((0, 0, 255), 750, 600, 200, 40, 'Yes')
 But11 = button((0, 0, 255), 970, 600, 200, 40, 'No')
@@ -2932,7 +2932,7 @@ def update_boss(boss0, nb_mob, Fin, tps, projectiles_list, boss, nb_arme, niveau
             nb_mob = 0
 
     projectiles_list = boss0.move(projectiles_list)
-    boss0.Dammage()
+    boss0.damage()
     boss0.draw()
 
     for pro in projectiles_list:
@@ -2949,7 +2949,7 @@ def update_boss(boss0, nb_mob, Fin, tps, projectiles_list, boss, nb_arme, niveau
     elif key[pygame.K_a] or key[pygame.K_q] or key[pygame.K_LEFT]:
         perso.move(3)
 
-    perso.Dammage()
+    perso.damage()
     perso.draw()
 
     pygame.display.update()
@@ -3014,15 +3014,15 @@ def raffraichissement(test_pos, nb_mob, test_collid, Fin = 0, tps = 0, projectil
                 mob.mort()
                 Mobs.remove(mob)
                 nb_mob -= 1
-            elif mob.x < 0 or mob.x > 1540  or mob.y < 0 or mob.y > 800:
+            elif mob.x < 0 or mob.x > 1920  or mob.y < 0 or mob.y > 1080:
                 mob.mort()
                 Mobs.remove(mob)
                 nb_mob -= 1
             mob.move(Map)
-            mob.Dammage()
+            mob.damage()
             mob.draw()
 
-        perso.Dammage()
+        perso.damage()
         perso.draw()
 
     return nb_mob, Son, test_collid, test_pos, Fin, tps, projectiles_list, boss, nb_arme, niveau_save
@@ -3148,7 +3148,7 @@ def New_arme():
     text3 = font3.render(Niv, 1, (0, 0, 0))
     fen.blit(text3, (930 - (text3.get_width()/1), 480))
 
-    Atk = 'Dammage : ' + str(perso.arme.atk)
+    Atk = 'damage : ' + str(perso.arme.atk)
     font4 = pygame.font.SysFont("comicsans", 30)
     text4 = font4.render(Atk, 1, (0, 0, 0))
     fen.blit(text4, (930 - (text4.get_width()/1), 500))
@@ -3190,7 +3190,7 @@ def New_arme():
         color = (0, 0, 0)
     elif perso.arme.atk < arme.atk:
         color = (0, 255, 0)
-    Atk2 = 'Dammage : ' + str(arme.atk)
+    Atk2 = 'damage : ' + str(arme.atk)
     font10 = pygame.font.SysFont("comicsans", 30)
     text10 = font10.render(Atk2, 1, color)
     fen.blit(text10, (990, 500))
@@ -3302,7 +3302,7 @@ def Fin_niveau(anti_bug):
     """Fonction permettant de gÃ©rer la fin de niveau et son changement. Prends en fonction l'anti bug int(anti_bug) afin de ne pas appuyer sur des boutons lors d'une attaque
     (pygame dÃ©tecte deux fois le clique de la sourie)"""
     fen.blit(Ecran_suite, (0, 0))
-    Niv = "You have completed this deep " + str(nb_niveaux)
+    Niv = "You have completed deep " + str(nb_niveaux)
     font1 = pygame.font.SysFont("comicsans", 40)
     text1 = font1.render(Niv, 1, (0, 0, 0))
     fen.blit(text1, (960 - (text1.get_width()/2), 520))
@@ -3317,7 +3317,7 @@ def Fin_niveau(anti_bug):
     text3 = font3.render(Nom, 1, (0, 0, 0))
     fen.blit(text3, (1880 - (text3.get_width()/1), 480))
 
-    Atk = 'Dammage : ' + str(arme.atk)
+    Atk = 'damage : ' + str(arme.atk)
     font4 = pygame.font.SysFont("comicsans", 30)
     text4 = font4.render(Atk, 1, (0, 0, 0))
     fen.blit(text4, (1880 - (text4.get_width()/1), 500))
@@ -3346,7 +3346,7 @@ def Fin_niveau(anti_bug):
         But3_3.draw(fen, 30)
         But8.draw(fen, 30)
 
-    if perso.gold >= (50 + (50*arme.lvl)) and arme.lvl < 10:
+    if perso.gold >= (50 + (50*arme.lvl)):
         Coup = "Upgrade cost : " + str(50 + (25*arme.lvl)) + ' or'
         font6 = pygame.font.SysFont("comicsans", 30)
         text6 = font6.render(Coup, 1, (0, 0, 0))
@@ -3357,7 +3357,7 @@ def Fin_niveau(anti_bug):
         text7 = font7.render(Am, 1, (0, 0, 0))
         fen.blit(text7, (1880 - (text7.get_width()/1), 600))
 
-        Am2 = "Dammage + " + str((arme.atk//5))
+        Am2 = "damage + " + str((arme.atk//5))
         font7 = pygame.font.SysFont("comicsans", 30)
         text7 = font7.render(Am2, 1, (0, 0, 0))
         fen.blit(text7, (1880 - (text7.get_width()/1), 620))
@@ -3473,10 +3473,6 @@ while run:
     key = pygame.key.get_pressed()
     if key[pygame.K_ESCAPE]:
         run = False
-
-    if key[pygame.K_k]:
-        perso.xp += 100
-        perso.gold += 100
 
 
     if Fin:
